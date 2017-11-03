@@ -15,8 +15,8 @@ The diff between 1 and 2:<br>
 
 ##### B. About Docker -p -P EXPOSE:
 1. EXPOSE is Dockerfile command , such as EXPOSE 5432 ,it's a official and standard to stuff your Dockerfile ,but just a expression or statement in the Dockerfile, you need use -P to expose 5432 port real.
-2. -P
-
+2. -P ,when you need to use with "EXPOSE" command docker imgea or use some official docker images. such as docker run -it -P --name pg postgresql:9.6  .Then you host xxx port already connect to the docker container 5432 port.
+3. -p , using at docker runtime. such as: docker run -it -p 127.0.0.1:3000:3000 rails:latest . manually set host port and container port.
 ##### C. About ADD and VOLUNE:
 1.What is ADD ? ADD means I can add whatever ,it can be a file or floder, add into docker image!<br>
 <br>
