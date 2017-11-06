@@ -25,3 +25,6 @@ When I use ADD command ? a. requeirement list file such as: ADD ./gemlist.txt /g
 2.What is VOLUNE ? VOLUNE means you can mount directory, you can have a access to paths on local host machine.But cann't use VOLUME files in the build-time, not access at build-time but will be accessible at rum-time.<br>
 
 When I use VOLUME command ? a.when docker container is running and makes logs in var/log/app .I need logs can be accessible on the machine, and is saved there when container is removed. such as: VOLUME /var/log/app and then docker run -v /host/log/dir/app:/var/log/app/ image.    b.some diff env config file or secret file in local need setting into container. such as: VOLUME /etc/settings/setting  and docker run -v /host/settings/dir/setting:/etc/settings/setting image.
+##### D. About FATAL: Listen error: unable to monitor directories for changes.
+1.The answer : *https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers for info on how to fix this.*
+2.on bash: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
