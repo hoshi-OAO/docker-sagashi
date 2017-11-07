@@ -28,3 +28,8 @@ When I use VOLUME command ? a.when docker container is running and makes logs in
 ##### D. About FATAL: Listen error: unable to monitor directories for changes.
 1.The answer : *https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers for info on how to fix this.*
 2.on bash: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+
+##### E. About CMD and ENTRYPOINT
+1. they can both in the Dockerfile, such as: FROM xxxx  ENTRYPOINT ["/bin/ping"] CMD ["localhost"]
+2. only last ENTRYPOINT and CMD can work in Dockerfile.
+3. The ENTRYPOINT specifies a command that will always be executed when the container starts. The CMD specifies arguments that will be fed to the ENTRYPOINT. such as:" FROM xxxx  ENTRYPOINT ["/bin/ping"] CMD ["localhost"] "and "docker run -it myimage " it will show PING localhost xxxxxxxx.
